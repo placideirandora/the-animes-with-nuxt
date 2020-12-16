@@ -4,14 +4,16 @@ export const state = () => ({
   loading: false,
   animes: [],
   anime: null,
-  fetchError: false
+  fetchError: false,
+  authenticated: false
 });
 
 export const getters = {
   animes: state => state.animes,
   anime: state => state.anime,
   fetchError: state => state.fetchError,
-  loading: state => state.loading
+  loading: state => state.loading,
+  authenticated: state => state.authenticated
 };
 
 export const mutations = {
@@ -29,6 +31,10 @@ export const mutations = {
 
   setFetchError: (state, payload) => {
     state.fetchError = payload;
+  },
+
+  setAuthenticated: (state, payload) => {
+    state.authenticated = payload;
   }
 };
 
