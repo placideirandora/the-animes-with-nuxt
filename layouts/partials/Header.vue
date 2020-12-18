@@ -19,6 +19,7 @@
 
 <script>
 import { mapGetters, mapMutations } from "vuex";
+import { removeItem } from "nuxt-storage/local-storage";
 
 export default {
   computed: {
@@ -27,7 +28,7 @@ export default {
   methods: {
     ...mapMutations(["setAuthenticated"]),
     onLogout() {
-      this.setAuthenticated(false);
+      removeItem("nuxtAuthToken");
       this.$router.push("/");
     },
   },

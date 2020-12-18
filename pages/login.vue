@@ -21,6 +21,7 @@
 
 <script>
 import { mapMutations } from "vuex";
+import { setData } from "nuxt-storage/local-storage";
 
 export default {
   head() {
@@ -40,9 +41,8 @@ export default {
     password: "",
   }),
   methods: {
-    ...mapMutations(["setAuthenticated"]),
     onSubmit() {
-      this.setAuthenticated(true);
+      setData("nuxtAuthToken", "the animes - auth token!", 30, "d");
       this.$router.push("/");
     },
   },

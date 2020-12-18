@@ -11,10 +11,7 @@ export default async function(context) {
     isHMR,
     redirect,
     error,
-    $config
+    $config,
+    isClient
   } = context;
-
-  if (!store.getters.authenticated) {
-    redirect("/login");
-  }
 }

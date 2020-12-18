@@ -1,4 +1,5 @@
 import axios from "axios";
+import { getData } from "nuxt-storage/local-storage";
 
 export const state = () => ({
   loading: false,
@@ -39,6 +40,13 @@ export const mutations = {
 };
 
 export const actions = {
+  nuxtClientInit({ commit }, context) {
+    const token = getData("nuxtAuthToken");
+
+    if (token) {
+      commit("setAuthenticated", true);
+    }
+  },
   fetchAnimes: async ({ commit }, type) => {
     return new Promise(async (resolve, reject) => {
       try {
